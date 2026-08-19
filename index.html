@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años - Avril</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- PORTADA CON SOBRE ANIMADO -->
+    <div id="pantalla-inicio" class="pantalla-inicio">
+        <div class="envelope-wrapper" onclick="abrirInvitacion()">
+            <div class="envelope">
+                <div class="flap"></div>
+                <div class="pocket"></div>
+                <div class="letter">
+                    <div class="letter-content">
+                        <h1 class="numero-romano">XV</h1>
+                        <h2 class="titulo-bienvenida">MIS XV AÑOS</h2>
+                        <p class="subtitulo-bienvenida">Estás cordialmente invitado/a</p>
+                        <div class="btn-entrar">ABRIR INVITACIÓN</div>
+                    </div>
+                </div>
+                <!-- Sello de cera dorado -->
+                <div class="wax-seal">XV</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIDEO DE FONDO -->
+    <video autoplay muted loop playsinline id="video-fondo">
+        <source src="fondo.mp4" type="video/mp4">
+    </video>
+    <div class="overlay-video"></div>
+
+    <!-- MÚSICA DE FONDO -->
+    <audio id="musica" loop>
+        <source src="neo roneo ft. LATIN MAFIA.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div id="invitacion-contenido">
+        
+        <button id="btn-musica" class="btn-flotante-audio">🎵</button>
+
+        <header class="hero">
+            <p class="pre-titulo">Mis Quince Años</p>
+            <h1 class="nombre-quinceanera">Avril</h1>
+            <p class="frase">"Que la vida sea AMARILLA; amar y ya"</p>
+        </header>
+
+        <div class="separador-dorado"></div>
+
+        <!-- GALERÍA DE FOTOS -->
+        <section class="seccion">
+            <h3 class="titulo-seccion">Momentos especiales</h3>
+            
+            <div class="galeria-grid">
+                <div class="foto-card"><img src="img/foto1.jpg" alt="Foto 1"></div>
+                <div class="foto-card"><img src="img/foto2.jpg" alt="Foto 2"></div>
+                <div class="foto-card"><img src="img/foto3.jpg" alt="Foto 3"></div>
+                <div class="foto-card"><img src="img/foto4.jpg" alt="Foto 4"></div>
+                <div class="foto-card"><img src="img/foto5.jpg" alt="Foto 5"></div>
+                <div class="foto-card"><img src="img/foto6.jpg" alt="Foto 6"></div>
+            </div>
+
+            <!-- Botón hacia el Álbum Compartido -->
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="https://drive.google.com/drive/folders/1pn5weOAsL02DhM11IzuTnOxcZOhhgkrP" target="_blank" class="btn-mapa" style="display: inline-block; width: 85%; max-width: 320px; text-decoration: none;">
+                    📸 Ver álbum completo / Compartir fotos
+                </a>
+            </div>
+        </section>
+
+        <div class="separador-dorado"></div>
+
+        <!-- VIDEO PROMOCIONAL (SILENCIADO) -->
+        <section class="seccion">
+            <h3 class="titulo-seccion">Los Mejores momentos de mi vida</h3>
+            <div class="contenedor-video-promocional">
+                <video controls muted poster="img/foto1.jpg" class="video-quinceanera">
+                    <source src="videoXV.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+        </section>
+
+        <div class="separador-dorado"></div>
+
+        <!-- CEREMONIA Y RECEPCIÓN -->
+        <section class="seccion">
+            <h3 class="titulo-seccion">Ceremonia & Recepción</h3>
+            <div class="tarjeta-glass">
+                <h4>Recepción & Baile</h4>
+                <p class="detalle-evento">🗓️ Viernes, 18 de Septiembre de 2026</p>
+                <p class="detalle-evento">⏰ 7:00 PM</p>
+                <p class="detalle-evento">🏢 Salón de Eventos "Arzola"</p>
+                <div class="botones-mapa">
+                    <a href="https://maps.app.goo.gl/xheUEUHU6VnmZgiK7" target="_blank" class="btn-mapa" style="width: 100%;">
+                        📍 Ver ubicación en Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="separador-dorado"></div>
+
+        <!-- CÓDIGO DE VESTIMENTA -->
+        <section class="seccion">
+            <h3 class="titulo-seccion">Código de Vestimenta</h3>
+            <p class="estilo-vestimenta">RIGUROSA ETIQUETA / FORMAL</p>
+            <p class="nota-reserva">✨ <i>El color Rosa está reservado exclusivamente para la quinceañera.</i></p>
+        </section>
+
+        <div class="separador-dorado"></div>
+
+        <!-- CONFIRMACIÓN WHATSAPP -->
+        <section class="seccion">
+            <h3 class="titulo-seccion">Confirmación de Asistencia</h3>
+            <div class="tarjeta-glass">
+                <form id="form-confirmacion" class="formulario">
+                    <label for="nombre">Nombre o Nombre de Familia:</label>
+                    <input type="text" id="nombre" placeholder="Ej. Familia Ramírez" required>
+
+                    <label for="asistencia">¿Nos acompañarás?</label>
+                    <select id="asistencia">
+                        <option value="¡Sí, ahí estaré celebrando contigo!">Asistiré con gusto</option>
+                        <option value="Lo siento mucho, no podré asistir.">Lamentablemente no podré ir</option>
+                    </select>
+
+                    <label for="pases">Número de pases a confirmar:</label>
+                    <input type="number" id="pases" min="1" max="10" value="1" required>
+
+                    <button type="submit" class="btn-whatsapp-vip">
+                        Confirmar por WhatsApp
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ARCHIVO SCRIPT EXTERNO -->
+    <script src="script.js"></script>
+
+    <!-- FUNCIÓN PARA ANIMAR Y ABRIR SOBRE -->
+    <script>
+    function abrirInvitacion() {
+        const wrapper = document.querySelector('.envelope-wrapper');
+        if (wrapper) {
+            wrapper.classList.add('open');
+        }
+        
+        // Reproduce la música de fondo
+        const musica = document.getElementById('musica');
+        if (musica) {
+            musica.play().catch(e => console.log("Interacción requerida para audio"));
+        }
+        
+        // Oculta la portada tras la animación
+        setTimeout(() => {
+            const pantallaInicio = document.getElementById('pantalla-inicio');
+            if (pantallaInicio) {
+                pantallaInicio.classList.add('oculto');
+            }
+        }, 1800);
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,483 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff9fa;
+    color: #5a4b4e;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* 🎥 VIDEO / IMAGEN DE FONDO CON FILTRO ROSA PASTEL */
+#video-fondo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2;
+    object-fit: cover;
+}
+
+.overlay-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado rosa suave con alta transparencia para que se aprecie el video */
+    background: linear-gradient(135deg, rgba(253, 240, 243, 0.88), rgba(248, 225, 231, 0.82));
+    z-index: -1;
+}
+
+/* ✉️ PANTALLA SOBRE EN ROSA PASTEL Y BORDES DORADOS */
+.pantalla-sobre {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.tarjeta-sobre {
+    background: rgba(255, 255, 255, 0.92);
+    border: 2px solid #d4af37; /* Borde Dorado Metallico */
+    backdrop-filter: blur(10px);
+    padding: 45px 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25), 0 5px 15px rgba(244, 143, 177, 0.3);
+    max-width: 90%;
+    width: 380px;
+}
+
+.monograma {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #d4af37; /* Dorado */
+    letter-spacing: 4px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.tarjeta-sobre h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: #7a5059;
+    letter-spacing: 2px;
+}
+
+.subtitulo-sobre {
+    font-size: 0.85rem;
+    color: #9e6b75;
+    margin-bottom: 25px;
+}
+
+/* BOTÓN DORADO BRILLANTE */
+.btn-elegante {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #aa820a 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-elegante:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+.oculto { display: none; }
+
+/* 📜 SECCIONES E ENCABEZADO */
+.hero { padding: 50px 20px 25px 20px; }
+
+.pre-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    color: #d4af37;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.nombre-quinceanera {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5.2rem;
+    color: #c28d98; /* Rosa Rubí Pastel */
+    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+    margin: -10px 0 10px 0;
+}
+
+.frase {
+    font-size: 0.92rem;
+    font-style: italic;
+    color: #6d555a;
+    max-width: 450px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.seccion {
+    padding: 25px 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    color: #d4af37; /* Dorado */
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.separador-dorado {
+    height: 2px;
+    width: 120px;
+    background: linear-gradient(90deg, transparent, #d4af37, #f4c2c2, #d4af37, transparent);
+    margin: 15px auto;
+}
+
+/* ⏱️ CUENTA REGRESIVA EN TARJETAS BLANCO/DORADO */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.time-box {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1.5px solid #d4af37;
+    backdrop-filter: blur(8px);
+    padding: 12px;
+    border-radius: 15px;
+    min-width: 70px;
+    box-shadow: 0 4px 12px rgba(244, 143, 177, 0.2);
+}
+
+.time-box span {
+    font-family: 'Cinzel', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #b0727d;
+    display: block;
+}
+
+.time-box small {
+    font-size: 0.65rem;
+    color: #d4af37;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* 📸 GALERÍA Y MARCOS DORADOS */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+}
+
+.foto-card {
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #d4af37;
+    height: 180px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.foto-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.foto-card img:hover { transform: scale(1.08); }
+
+/* 🎬 VIDEO PROMO */
+.contenedor-video-promocional {
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #d4af37;
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
+}
+
+.video-quinceanera {
+    width: 100%;
+    display: block;
+}
+
+/* 📍 TARJETAS CRISTAL */
+.tarjeta-glass {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1.5px solid #d4af37;
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(244, 143, 177, 0.18);
+}
+
+.tarjeta-glass h4 {
+    font-family: 'Cinzel', serif;
+    color: #b0727d;
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+}
+
+.detalle-evento {
+    font-size: 0.92rem;
+    margin-bottom: 8px;
+    color: #5a4b4e;
+}
+
+.botones-mapa {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.btn-mapa {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1.5px solid #d4af37;
+    background: rgba(253, 240, 243, 0.9);
+    color: #7a5059;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.btn-mapa:hover {
+    background: #d4af37;
+    color: #ffffff;
+}
+
+/* 📱 FORMULARIO */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+}
+
+.formulario label {
+    font-size: 0.82rem;
+    color: #7a5059;
+    font-weight: 600;
+}
+
+.formulario input, .formulario select {
+    background: rgba(253, 240, 243, 0.8);
+    border: 1.5px solid #d4af37;
+    color: #5a4b4e;
+    padding: 12px;
+    border-radius: 10px;
+    font-family: inherit;
+    outline: none;
+}
+
+.btn-whatsapp-vip {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn-flotante-audio {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
+    color: white;
+    border: 1.5px solid #ffffff;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+    /* Pantalla de inicio (Portada) */
+
+    /* Pantalla de Inicio / Portada Elegante */
+/* Pantalla de Inicio / Portada */
+.pantalla-inicio {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fce4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease, visibility 1s ease;
+    overflow: hidden;
+}
+
+.pantalla-inicio.oculto {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Estructura del Sobre */
+.envelope-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.envelope {
+    position: relative;
+    width: 320px;
+    height: 220px;
+    background: #f4d06f; /* Color base dorado claro */
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Solapa superior (Triángulo) */
+.envelope .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 130px solid #d4af37;
+    transform-origin: top;
+    transition: transform 0.6s ease 0.2s, z-index 0.2s ease 0.4s;
+    z-index: 3;
+}
+
+/* Cuerpo del sobre (Bolsillo) */
+.envelope .pocket {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-left: 160px solid #e5c158;
+    border-right: 160px solid #e5c158;
+    border-bottom: 110px solid #d4af37;
+    border-radius: 0 0 10px 10px;
+    z-index: 2;
+}
+
+/* Tarjeta dentro del sobre */
+.envelope .letter {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    width: 290px;
+    height: 200px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1;
+    transition: transform 0.8s ease 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #d4af37;
+}
+
+/* Textos de la tarjeta */
+.letter-content .numero-romano {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: #c5a059;
+    margin: 0;
+}
+
+.letter-content .titulo-bienvenida {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: #6b2d41;
+    margin: 5px 0;
+    letter-spacing: 2px;
+}
+
+.letter-content .subtitulo-bienvenida {
+    font-size: 0.8rem;
+    color: #8c7379;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.letter-content .btn-entrar {
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: #fff;
+    padding: 8px 18px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+/* Sello de cera en la punta */
+.wax-seal {
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 42px;
+    height: 42px;
+    background: radial-gradient(circle, #d4af37 0%, #aa820a 100%);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    z-index: 4;
+    transition: opacity 0.3s ease;
+}
+
+/* --- ANIMACIÓN AL HACER CLIC --- */
+.envelope-wrapper.open .flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope-wrapper.open .wax-seal {
+    opacity: 0;
+}
+
+.envelope-wrapper.open .letter {
+    transform: translateY(-120px) scale(1.1);
+    z-index: 5;
+}
