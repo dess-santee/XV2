@@ -22,10 +22,10 @@ function abrirInvitacion() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 📱 Configura tu número de WhatsApp
+    // 📱 Número de WhatsApp configurado
     const NUMERO_WHATSAPP = "522212008319";
 
-    // 📅 Configura la fecha de los XV Años (Año, Mes - 1, Día, Hora, Minuto)
+    // 📅 Configuración de fecha para los XV Años (Año, Mes - 1, Día, Hora, Minuto)
     const fechaEvento = new Date(2026, 8, 18, 19, 0, 0).getTime();
 
     // 1. BOTÓN DE MÚSICA (Play / Pausa manual)
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (diferencia < 0) {
             clearInterval(interval);
-            const countdownEl = document.getElementById('countdown');
+            const countdownEl = document.getElementById('cuenta-regresiva');
             if (countdownEl) {
                 countdownEl.innerHTML = "<h3 style='color:#d4af37;'>¡Llegó el gran día!</h3>";
             }
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (elSegundos) elSegundos.textContent = segundos < 10 ? '0' + segundos : segundos;
     }, 1000);
 
-    // 3. ENVÍO A WHATSAPP
+    // 3. ENVÍO A WHATSAPP (Corregido)
     const form = document.getElementById('form-confirmacion');
     if (form) {
         form.addEventListener('submit', (e) => {
@@ -82,11 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const nombre = document.getElementById('nombre').value;
             const asistencia = document.getElementById('asistencia').value;
-            const pases = document.getElementById('pases').value;
 
             const mensaje = `¡Hola! Soy *${nombre}*.\n\n` +
                             `*Asistencia:* ${asistencia}\n` +
-                            `*Pases confirmados:* ${pases}\n\n` +
                             `¡Muchas gracias por la invitación! ✨`;
 
             const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
