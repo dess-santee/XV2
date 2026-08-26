@@ -143,8 +143,6 @@
                         <option value="Lo siento mucho, no podré asistir.">Lamentablemente no podré ir</option>
                     </select>
 
-                    
-
                     <button type="submit" class="btn-whatsapp-vip">
                         Confirmar por WhatsApp
                     </button>
@@ -156,29 +154,5 @@
 
     <!-- ARCHIVO SCRIPT EXTERNO -->
     <script src="script.js"></script>
-
-    <!-- FUNCIÓN PARA ANIMAR Y ABRIR SOBRE -->
-    <script>
-    function abrirInvitacion() {
-        const wrapper = document.querySelector('.envelope-wrapper');
-        if (wrapper) {
-            wrapper.classList.add('open');
-        }
-        
-        // Reproduce la música de fondo
-        const musica = document.getElementById('musica');
-        if (musica) {
-            musica.play().catch(e => console.log("Interacción requerida para audio"));
-        }
-        
-        // Oculta la portada tras la animación
-        setTimeout(() => {
-            const pantallaInicio = document.getElementById('pantalla-inicio');
-            if (pantallaInicio) {
-                pantallaInicio.classList.add('oculto');
-            }
-        }, 1800);
-    }
-    </script>
 </body>
 </html>
